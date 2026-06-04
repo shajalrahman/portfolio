@@ -1,38 +1,30 @@
 import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
+import { FaGooglePlay, FaApple } from "react-icons/fa";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "Elegent Hospitality",
+    category: "Event Staff Management",
+    tools: "React Native, Node.js, TypeScript",
+    image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=800&h=600&fit=crop",
+    link: "https://github.com/exofttechnologies/Catering-App",
+    playStore: "https://play.google.com/store/apps/details?id=com.exoft.elegent&pcampaignid=web_share",
+    appStore: "https://apps.apple.com/in/app/elegent-hospitality/id6764536902",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "JobSeeker",
+    category: "Part-Time Job Platform",
+    tools: "Flutter, Dart",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
-  },
-  {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
-  },
-  {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "Diagnova",
+    category: "ML-Based Health Prediction",
+    tools: "Machine Learning, Prediction System",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
   },
 ];
 
@@ -112,6 +104,43 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-link"
+                            style={{ marginTop: "12px", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                          >
+                            View on GitHub <MdArrowOutward />
+                          </a>
+                        )}
+                        {(project.playStore || project.appStore) && (
+                          <div style={{ display: "flex", gap: "12px", marginTop: "12px" }}>
+                            {project.playStore && (
+                              <a
+                                href={project.playStore}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Download on Play Store"
+                                style={{ fontSize: "20px", cursor: "pointer" }}
+                              >
+                                <FaGooglePlay />
+                              </a>
+                            )}
+                            {project.appStore && (
+                              <a
+                                href={project.appStore}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Download on App Store"
+                                style={{ fontSize: "20px", cursor: "pointer" }}
+                              >
+                                <FaApple />
+                              </a>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
